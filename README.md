@@ -3,7 +3,7 @@
 ## How to run
 
 1. Copy `.env.example` to `.env` 
-2. Edit Database Connection and Mail Server in `.env` 
+2. Edit Database Connection and Mail Server (We recommend to use [mailtrap.io](https://mailtrap.io)) in `.env` 
 3. `adonis key:generate` - for first
 4. `adonis migration:run` - for create table
 5. `adonis seed` - for create mock user and booking
