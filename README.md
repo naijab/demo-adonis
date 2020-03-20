@@ -19,7 +19,7 @@
 
 1. Send Booking Confirmation to Email
 
-   > [http://localhost:3333/bookings/{user-id-in-database}/send/confirm](http://localhost:3333/bookings/1/send/confirm)
+   > [http://localhost:3333/bookings/{booking-id-in-database}/send/confirm](http://localhost:3333/bookings/1/send/confirm)
 
 2. Confirmation booking in Mail with Click link
 
