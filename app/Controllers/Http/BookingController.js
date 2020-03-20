@@ -7,12 +7,13 @@ const Booking = use('App/Models/Booking')
 class BookingController {
   async sendConfirmBooking({
     request,
-    response
+    response,
+    params,
   }) {
-    const user = await User.find(1)
-    const booking = await Booking.find(1)
+    const booking = await Booking.find(params.id)
 
-    if (user && booking) {
+    if (booking) {
+      const user = await User.find(booking.user_id)
 
       //TODO: Generate Uniq Token
       const token = "aa1234"
