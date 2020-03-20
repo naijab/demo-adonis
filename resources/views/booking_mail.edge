@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Booking Confirmation</title>
+</head>
+<body>
+  <h1>Booking Confirmation #{{booking.id}}</h1>
+  <li>Date {{booking.date}}</li>
+  <li>Time {{booking.time}}</li>
+  <a href="http://localhost:3333/bookings/{{booking.id}}/confirm?token={{token}}">Confirm</a>
+</body>
+</html>
+
+
