@@ -4,12 +4,12 @@ const Mail = use('Mail')
 const User = use('App/Models/User')
 const Booking = use('App/Models/Booking')
 const LoginUserRules = use('App/Validators/LoginUser')
-const LoginService = use('App/Services/LoginService')
+const HelloService = use('App/Services/HelloService')
 const {
   validateAll
 } = use('Validator')
 
-class BookingController {
+class AuthController {
   async login({
     request,
     response,
@@ -19,6 +19,9 @@ class BookingController {
       await validateAll(request.only('email', 'password'), LoginUserRules)
       const user = await auth.attempt(request.input('email'), request.input('password'));
       if (user) {
+
+        await HelloService.hello(this.afterSendEmail)
+
         return response.json({
           token: user
         })
@@ -28,6 +31,10 @@ class BookingController {
         error: error
       })
     }
+  }
+
+  afterSendEmail(status, time) {
+    console.log(`Call 2. After Send Mail => ${status}, ${time}`)
   }
 
   async me({
@@ -50,4 +57,4 @@ class BookingController {
   }
 }
 
-module.exports = BookingController
+module.exports = AuthController
