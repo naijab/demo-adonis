@@ -67,6 +67,21 @@ class BookingController {
     }
   }
 
+
+  async getMyBooking({
+    request,
+    response,
+    auth,
+  }) {
+    const user = await auth.getUser()
+    const bookings = await User.query().with('bookings', (builder) => {
+      builder.where('user_id', user.id)
+    }).fetch()
+    return response.json({
+      "bookings": bookings
+    })
+  }
+
 }
 
 module.exports = BookingController

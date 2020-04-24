@@ -21,3 +21,13 @@ Route.get('/bookings/:id/send/confirm', 'BookingController.sendConfirmBooking')
 
 // Confirm Booking from Email link
 Route.get('/bookings/:id/confirm', 'BookingController.confirmBooking')
+
+// Login
+Route.post('/user/login', 'AuthController.login').middleware('guest')
+
+Route.group(() => {
+  Route.get('/user/me', 'AuthController.me')
+
+  Route.get('/booking/me', 'BookingController.getMyBooking').namespace('Booking')
+
+}).middleware('auth')
